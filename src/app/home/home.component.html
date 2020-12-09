@@ -1,0 +1,30 @@
+
+<mat-grid-list [cols]=4 rowHeight="50px">
+  <mat-grid-tile>Name:<br /><input [(ngModel)]="filter.name"></mat-grid-tile>
+  <mat-grid-tile>Username:<br /><input [(ngModel)]="filter.username"></mat-grid-tile>
+  <mat-grid-tile>Email:<br /><input [(ngModel)]="filter.email"></mat-grid-tile>
+  <mat-grid-tile>Website:<br /><input [(ngModel)]="filter.website"></mat-grid-tile>
+</mat-grid-list>
+<button (click)="onButtonClick()">Search</button>
+
+<mat-grid-list [cols]=8>
+  <mat-grid-tile>Id</mat-grid-tile>
+  <mat-grid-tile>Name</mat-grid-tile>
+  <mat-grid-tile>Username</mat-grid-tile>
+  <mat-grid-tile>Email</mat-grid-tile>
+  <mat-grid-tile>Address</mat-grid-tile>
+  <mat-grid-tile>Phone</mat-grid-tile>
+  <mat-grid-tile>Website</mat-grid-tile>
+  <mat-grid-tile>Company</mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list  [cols]=8 *ngFor="let user of filteredDataObj">
+  <mat-grid-tile>{{user?.id}}</mat-grid-tile>
+  <mat-grid-tile>{{user?.name}}</mat-grid-tile>
+  <mat-grid-tile>{{user?.username}}</mat-grid-tile>
+  <mat-grid-tile>{{user?.email}}</mat-grid-tile>
+  <mat-grid-tile>{{user?.address?.street}}<br />{{user?.address?.suite}}<br />{{user?.address?.city}}
+    <br />{{user?.address?.zipcode}}<br />{{user?.address?.geo?.lat}}, {{user?.address?.geo?.lng}}</mat-grid-tile>
+  <mat-grid-tile>{{user?.phone}}</mat-grid-tile>
+  <mat-grid-tile>{{user?.website}}</mat-grid-tile>
+  <mat-grid-tile>{{user?.company?.name}}</mat-grid-tile>
+</mat-grid-list>
